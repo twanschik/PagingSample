@@ -20,6 +20,8 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutCompat
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.KeyEvent
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         // Create adapter for the RecyclerView
         val adapter = CheeseAdapter()
         cheeseList.adapter = adapter
+        (cheeseList.layoutManager as LinearLayoutManager).stackFromEnd = true
 
         // Subscribe the adapter to the ViewModel, so the items in the adapter are refreshed
         // when the list changes
